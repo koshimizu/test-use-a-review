@@ -1,0 +1,717 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
+
+  <title>File: format.rdoc [RDoc Documentation]</title>
+
+  <link type="text/css" media="screen" href="./rdoc.css" rel="stylesheet" />
+
+  <script src="./js/jquery.js" type="text/javascript"
+    charset="utf-8"></script>
+  <script src="./js/thickbox-compressed.js" type="text/javascript"
+    charset="utf-8"></script>
+  <script src="./js/quicksearch.js" type="text/javascript"
+    charset="utf-8"></script>
+  <script src="./js/darkfish.js" type="text/javascript"
+    charset="utf-8"></script>
+</head>
+
+<body class="file">
+  <div id="metadata">
+    <div id="home-metadata">
+      <div id="home-section" class="section">
+        <h3 class="section-header">
+          <a href="./index.html">Home</a>
+          <a href="./index.html#classes">Classes</a>
+          <a href="./index.html#methods">Methods</a>
+        </h3>
+      </div>
+    </div>
+
+    <div id="project-metadata">
+      
+      
+      <div id="fileindex-section" class="section project-section">
+        <h3 class="section-header">Files</h3>
+        <ul>
+        
+          <li class="file"><a href="./format_rdoc.html">format.rdoc</a></li>
+        
+          <li class="file"><a href="./format_idg_rdoc.html">format_idg.rdoc</a></li>
+        
+          <li class="file"><a href="./quickstart_rdoc.html">quickstart.rdoc</a></li>
+        
+        </ul>
+      </div>
+      
+
+      <div id="classindex-section" class="section project-section">
+        <h3 class="section-header">Class Index
+          <span class="search-toggle"><img src="./images/find.png"
+            height="16" width="16" alt="[+]"
+            title="show/hide quicksearch" /></span></h3>
+        <form action="#" method="get" accept-charset="utf-8" class="initially-hidden">
+        <fieldset>
+          <legend>Quicksearch</legend>
+          <input type="text" name="quicksearch" value=""
+            class="quicksearch-field" />
+        </fieldset>
+        </form>
+
+        <ul class="link-list">
+        
+        </ul>
+        <div id="no-class-search-results" style="display: none;">No matching classes.</div>
+      </div>
+
+      
+    </div>
+  </div>
+
+  <div id="documentation">
+    
+<h1>ReVIEW フォーマット</h1>
+
+<p>ReVIEW フォーマットの文法について解説します。ReVIEW フォーマットは ASCII の EWB を基本としながら、一部に RD や各種
+Wiki の文法をとりいれて簡素化しています。</p>
+
+<h2>段落</h2>
+
+<p>段落(本文)の間は英語の段落のように1行空けます。ただし、組版に まわすときは前処理して1段落を1行に変更してあります。</p>
+
+<p>例:</p>
+
+<pre>だんらくだんらく〜〜〜
+この行も同じ段落
+
+次の段落〜〜〜</pre>
+
+<p>2行以上空いている場合も1行空きと同様に処理します。</p>
+
+<h2>章・節・項・段(見出し)</h2>
+
+<p>章・節・項・段など、見出しは「=」「==」「===」「====」「=====」です。6 レベル以上は使えません。</p>
+
+<p>例:</p>
+
+<pre>= 章のキャプション
+
+== 節のキャプション
+
+=== 項のキャプション
+
+==== 段のキャプション
+
+===== 小段のキャプション</pre>
+
+<p>見出しは行の先頭から始める必要があります。行頭に空白が入ると、ただの本文とみなされます。</p>
+
+<h2>コラムなど</h2>
+
+<p>節や項の見出しに [column] を追加するとコラムのキャプションになります。</p>
+
+<p>例:</p>
+
+<pre>===[column] コンパイラコンパイラ</pre>
+
+<p><a href="http://column">このとき、「=」と「</a>」は間を開けず、必ず続けて書かなければ
+なりません。空白があってもいけません。</p>
+
+<p><a href="http:///column">次の節や項を待たずにコラムを終了する場合は、「===</a>」を記述します。</p>
+
+<p>例:</p>
+
+<pre>===[column] コンパイラコンパイラ
+
+コラムの内容
+
+===[/column]</pre>
+
+<h2>箇条書き</h2>
+
+<p>箇条書き (HTML で言う ul) は「*」で表現します。 ネストは「**」のように深さに応じて数を増やします。</p>
+
+<p>例:</p>
+
+<pre>* 第一の項目
+** 第一の項目のネスト
+* 第二の項目
+** 第二の項目のネスト
+* 第三の項目</pre>
+
+<p>箇条書きを書くには、行頭に1つ以上の空白を必ず入れるようにします。 行頭に空白を入れず「*」を書くと、ただのテキストとみなされます。</p>
+
+<h2>番号付き箇条書き</h2>
+
+<p>番号付きの箇条書き (HTML で言う ol) は「1. 〜」「2. 〜」 「3. 〜」で示します。ネストはしません。</p>
+
+<p>例:</p>
+
+<pre>1. 第一の条件
+2. 第二の条件
+3. 第三の条件</pre>
+
+<p>番号付き箇条書きも、ただの箇条書きと同様、行頭に1つ以上の空白が必要です。</p>
+
+<h2>用語リスト</h2>
+
+<p>用語リスト (HTML で言う dl) は「:」と、続く空白で始まる行を使って示します。</p>
+
+<p>例:</p>
+
+<pre>: Alpha
+    DEC の作っていた RISC CPU。
+    浮動小数点数演算が速い。
+: POWER
+    IBM とモトローラが共同製作した RISC CPU。
+    派生として POWER PC がある。
+: SPARC
+    Sun が作っている RISC CPU。
+    CPU 数を増やすのが得意。</pre>
+
+<p>頭の「:」それ自体はテキストではないので注意してください。 その後に続く文字列が用語名(HTMLではdt要素)になります。</p>
+
+<p>用語リストの「:」ではじまる行は、行頭に空白があってもなくてもかまいません。
+そして、その行以降、空白で始まる行が用語内容(HTMLではdd要素)になります。</p>
+
+<p>また、リスト内でも後述するインライン命令は有効です。</p>
+
+<h2>ソースコードなどのリスト</h2>
+
+<p>ソースコードリストにはキャプションの付くリストとキャプションの付かないリストがあります。 <a
+href="http://識別子">連番つきリストは「//list</a>[キャプション]{ 〜 //}」で、 <a
+href="http://キャプション">連番なしリストは「//emlist</a>{ 〜 //}」です。
+//emlistのキャプションは省略できます。</p>
+
+<p>例:</p>
+
+<pre>//list[main][main()]{    ←「main」が識別子で「main()」がキャプション
+int
+main(int argc, char **argv)
+{
+    puts(&quot;OK&quot;);
+    return 0;
+}
+//}</pre>
+
+<p>例:</p>
+
+<pre>//emlist{
+printf(&quot;hello&quot;);
+//}</pre>
+
+<p>ブロック内でも後述するインライン命令は有効です。</p>
+
+<p>また本文中で「リスト X を見てください」のようにリストを指定 する場合は、//list
+で指定した識別子を使って「@&lt;list&gt;{main}」 と表記します。</p>
+
+<h3>ソースコード専用の引用</h3>
+
+<p>ソースコードを引用する場合、ファイル名が必要です。</p>
+
+<p>例:</p>
+
+<pre>//source[/hello/world.rb]{
+ puts &quot;hello world!&quot;
+//}</pre>
+
+<p>ソースコードの引用は、キャプションをつけた//emlistとあまり違いはありません。 が、HTMLのCSSなどでは区別した表現ができます。</p>
+
+<h2>行番号付き連番ありリスト</h2>
+
+<p>連番ありのリスト(list)で自動的に行番号がつきます。</p>
+
+<p>例:</p>
+
+<pre>//listnum[hello][ハローワールド]{
+ puts &quot;hello world!&quot;
+//}</pre>
+
+<p>参照方法はlistと変わりません。</p>
+
+<p>例:</p>
+
+<pre>..は@&lt;list&gt;{hello}をみてください。</pre>
+
+<h2>行番号付き連番なしリスト</h2>
+
+<p>連番なしのリスト(emlist)で自動的に行番号がつきます。</p>
+
+<p>例:</p>
+
+<pre>//emlistnum{
+ puts &quot;hello world!&quot;
+//}</pre>
+
+<h2>本文中でのソースコード引用</h2>
+
+<p>本文中でソースコードを引用して記述します。</p>
+
+<p>例:</p>
+
+<pre>@&lt;code&gt;{p = obj.ref_cnt}</pre>
+
+<h2>コマンドラインのキャプチャ</h2>
+
+<p>コマンドラインの操作を示すときは //cmd{ 〜 //} を使います。</p>
+
+<p>例:</p>
+
+<pre>//cmd{
+$ ls /
+//}</pre>
+
+<p>ブロック内でも後述するインライン命令は有効です。</p>
+
+<h2>図</h2>
+
+<p>図は //image{ 〜 //} で指定します。執筆中はアスキーアートで 代替しているため、ダミーのアスキーアートが入っていることがあり
+ます。この部分は、組版時には単に無視してください。</p>
+
+<p>例:</p>
+
+<pre>//image[unixhistory][UNIX系OSの簡単な系譜]{
+            System V 系列
+            +----------- SVr4 --&gt; 各種商用UNIX（Solaris, AIX, HP-UX, ...）
+V1 --&gt; V6 --|
+            +--------- 4.4BSD --&gt; FreeBSD, NetBSD, OpenBSD, ...
+            BSD 系列
+
+                  --------------&gt; Linux
+//}</pre>
+
+<p>3番目の引数として、画像の倍率・大きさを指定することができます。 今のところ「scale=X」で倍率(X倍)が指定できます。</p>
+
+<p>また本文中で「図 X を見てください」のように図を指定する場合は、 //image
+で指定した識別子を用いて「@&lt;img&gt;{unixhistory}」と 記述します。//image と @&lt;img&gt;
+でつづりが違うので注意してください。</p>
+
+<p>なお、後述しますが、インラインで図を出力するには@&lt;icon&gt;を使用します。</p>
+
+<h2>番号が振られていない図</h2>
+
+<p>//indepimage[ファイル名][キャプション] で番号が振られていない画像ファイルを生成します。キャプションは省略できます。</p>
+
+<p>例:</p>
+
+<pre>//indepimage[unixhistory2]</pre>
+
+<p>同様のことは、//numberlessimageでも使えます。</p>
+
+<p>例:</p>
+
+<pre>//numberlessimage[door_image_path][扉絵]</pre>
+
+<p>※ただし、//indepimageと機能的にかぶっているので、将来は廃止され、//indepimageに統合される予定です。</p>
+
+<h2>グラフ表現ツールを使った図</h2>
+
+<p>//graph[ファイル名][<a href="http://キャプション">コマンド名]</a>
+で各種グラフ表現ツールを使った画像ファイルの生成ができます。キャプションは省略できます。</p>
+
+<p>例: gnuplotの使用</p>
+
+<pre>//graph[sin_x][gnuplot]{
+    plot sin(x)
+//}</pre>
+
+<p>コマンド名には、「graphviz」「gnuplot」「blockdiag」「aafigure」のいずれかを指定できます。ツールはそれぞれ別途インストールする必要があります。</p>
+
+<h2>表</h2>
+
+<p>表は //table[識別子][キャプション]{ 〜 //} です。ヘッダと内容を 分ける罫線は「——」で書き込んであります。</p>
+
+<p>カラム間は任意個数のタブで区切ります。また、カラム先頭の「.」は削 除されるので、カラムの先頭文字が「.」の場合は「.」をもう一つ余計に
+付けてください。例えば「.」という内容のカラムは「..」と書きます。 また、空のカラムは「.」と書けます。</p>
+
+<p>例:</p>
+
+<pre>//table[envvars][重要な環境変数]{
+名前            意味
+-------------------------------------------------------------
+PATH            コマンドの存在するディレクトリ
+TERM            使っている端末の種類。linux・kterm・vt100など
+LANG            ユーザのデフォルトロケール。日本語ならja_JP.eucJPやja_JP.utf8
+LOGNAME         ユーザのログイン名
+TEMP            一時ファイルを置くディレクトリ。/tmpなど
+PAGER           manなどで起動するテキスト閲覧プログラム。lessなど
+EDITOR          デフォルトエディタ。viやemacsなど
+MANPATH         manのソースを置いているディレクトリ
+DISPLAY         X Window Systemのデフォルトディスプレイ
+//}</pre>
+
+<p>本文中で「表 X を見てください」のように表を指定する場合は @&lt;table&gt;{envvars} という表記を使います。</p>
+
+<p>表内でも後述するインライン命令は有効です。</p>
+
+<h2>引用</h2>
+
+<p>引用は「//quote{ 〜 //}」を使って記述します。</p>
+
+<p>例:</p>
+
+<pre>//quote{
+百聞は一見に如かず。
+//}</pre>
+
+<p>引用内でも後述するインライン命令は有効です。 また、いまのところ引用内で別のブロック構文を使うことはできません。</p>
+
+<h2>脚注</h2>
+
+<p>脚注は「//footnote」を使って記述します。</p>
+
+<p>例:</p>
+
+<pre>パッケージは本書のサポートサイトから入手できます@&lt;fn&gt;{site}。
+各自ダウンロードしてインストールしておいてください。
+//footnote[site][本書のサポートサイト： http://i.loveruby.net/ja/stdcompiler ]</pre>
+
+<p>本文中の「@&lt;fn&gt;{site}」は脚注番号に置換され、「本書のサポート サイト……」という文は実際の脚注に変換されます。</p>
+
+<p>注意: PDFで、コラムや表など平文でないところで「@&lt;fn&gt;{～}」を使うには、footnotetextオプションを使う必要があります。</p>
+
+<h3>footnotetextオプション</h3>
+
+<p>footnotetextオプションを使うには、YAMLファイルのparamsに「–footnotetext」を追加します。</p>
+
+<p>これでPDFのコラムや表のなかでも脚注が使えるようになります。</p>
+
+<p>ただし、通常の脚注(footnote)ではなく、footnotemarkとfootnotetextを使うため、本文と脚注が別ページに分かれる可能性があるなど、いろいろな制約があります。</p>
+
+<h2>参考文献の定義</h2>
+
+<p>参考文献は同一ディレクトリ内の bib.re に定義します。 //bibpaper[cite][キャプション]{..コメント..}
+コメントが無い場合も定義可能です。 //bibpaper[cite][キャプション]</p>
+
+<p>例:</p>
+
+<pre>//bibpaper[lins][Lins, 1991]{
+Refael D. Lins. A shared memory architecture for parallel study of
+algorithums for cyclic reference_counting. Technical Report 92,
+Computing Laboratory, The University of Kent at Canterbury , August
+1991
+//}</pre>
+
+<p>本文中で参考文献を参照したい場合は次のようにしてください。</p>
+
+<p>例:</p>
+
+<pre>…という研究が知られています(@&lt;bib&gt;{lins})</pre>
+
+<h2>リード文</h2>
+
+<p>リード文は //lead{ 〜 //} で指定します。 歴史的経緯により//read{ 〜 //} でも使えます。</p>
+
+<p>例:</p>
+
+<pre>//lead{
+本章ではまずこの本の概要について話し、
+次にLinuxでプログラムを作る方法を説明していきます。
+//}</pre>
+
+<h2>TeX式</h2>
+
+<p>LaTeX の式を挿入するには、//texequation{ 〜 //} を使います。</p>
+
+<p>例:</p>
+
+<pre>//texequation{
+\sum_{i=1}^nf_n(x)
+//}</pre>
+
+<h2>空白制御</h2>
+
+<p>出力される空白を制御するタグとしては、//noindentがあります。</p>
+<table class="rdoc-list"><tr><td class="rdoc-term"><p>//noindent</p></td>
+<td>
+<p>その直後に来る段落冒頭のインデントをなくする(HTMLではnoindentクラスになる)</p>
+</td></tr></table>
+
+<p>以前あった「//linebreak」(改行)、「//pagebreak」(改ページ)は廃止になります。</p>
+
+<h2>コメント</h2>
+
+<p>最終結果に出力されないコメントを記述したい場合は「#@#」を使ってください。</p>
+
+<p>例:</p>
+
+<pre>#@# ここで 1 行あける</pre>
+
+<p>また、修正が必要な警告的コメントには#@warn(…)を使ってください。</p>
+
+<p>例:</p>
+
+<pre>#@warn(あとで書く)</pre>
+
+<p>最終結果に出力するコメントを記述したい場合は、//commentまたは@&lt;comment&gt;を使った上で、review-compileコマンドに–draftオプションを追加してください。</p>
+
+<p>例:</p>
+
+<pre>@&lt;comment&gt;{あとで書く}</pre>
+
+<h2>生データ行</h2>
+
+<p>ReVIEW のタグ範囲を越えて何か特別な行を挿入したい場合、//raw を使います。</p>
+
+<p>例:</p>
+
+<pre>//raw[|html|&lt;div class=&quot;special&quot;&gt;\nここは特別な行です。\n&lt;/div&gt;]</pre>
+
+<p>「|ビルダ名|そのまま出力させる内容」という書式です。</p>
+
+<p>ビルダ名には「html」「latex」「idgxml」「top」のいずれかが入り、(複数のビルダにまたがる指定が必要かは別として)「,」で区切って複数指定することも可能です。
+「バックスラッシュ+n」は改行に変換されます。 該当のビルダを使用しているときのみ、内容が出力されます。</p>
+
+<p>例:</p>
+
+<pre>(HTMLビルダの場合:)
+&lt;div class=&quot;special&quot;&gt;
+ここは特別な行です。
+&lt;/div&gt;
+
+(ほかのビルダの場合は単に無視されて何も出力されない)</pre>
+
+<p>//raw およびこの後に紹介する @&lt;raw&gt; インラインタグは、誤った内容を入れると
+構造化文書を容易に破壊し得ることに注意してください。</p>
+
+<h2>その他の文法</h2>
+
+<p>ReVIEW は任意のブロックを追加可能なので、本によって専用ブロックを 使う場合があります。これまでに使った例を以下に示します。</p>
+<table class="rdoc-list"><tr><td class="rdoc-term"><p>//prototype</p></td>
+<td>
+<p>関数プロトタイプ。『ふつうのLinuxプログラミング』で使用。</p>
+</td></tr><tr><td class="rdoc-term"><p>//type</p></td>
+<td>
+<p>関数の型宣言。『ふつうのHaskellプログラミング』で使用。</p>
+</td></tr></table>
+
+<p>拡張文法はreview-ext.rbというファイルで指定できます。 例えば、</p>
+
+<pre># review-ext.rb
+ReVIEW::Compiler.defblock :foo, 0..1
+
+class ReVIEW::HTMLBuilder
+  def foo(lines, caption = nil)
+    puts lines.join(&quot;,&quot;)
+  end
+end</pre>
+
+<p>のようにすると、以下のような文法を追加できます。</p>
+
+<pre>//foo{
+A
+B
+C
+//}
+
+# 出力結果
+A,B,C</pre>
+
+<p>詳しいことについては、ここでは触れません。</p>
+
+<h2>段落中で使う文法 (インライン命令)</h2>
+<table class="rdoc-list"><tr><td class="rdoc-term"><p>@&lt;list&gt;{program}</p></td>
+<td>
+<p>「リスト1.5」のような文字列に置換される。</p>
+</td></tr><tr><td class="rdoc-term"><p>@&lt;img&gt;{unixhistory}</p></td>
+<td>
+<p>「図1.3」のような文字列に置換される。</p>
+</td></tr><tr><td class="rdoc-term"><p>@&lt;table&gt;{ascii}</p></td>
+<td>
+<p>「表1.2」のような文字列に置換される。</p>
+</td></tr><tr><td class="rdoc-term"><p>@&lt;fn&gt;{site}</p></td>
+<td>
+<p>脚注番号に置換される。</p>
+</td></tr><tr><td class="rdoc-term"><p>@&lt;kw&gt;{信任状, credential}</p></td>
+<td>
+<p>キーワード。太字などにして強調してください。</p>
+</td></tr><tr><td class="rdoc-term"><p>@&lt;chap&gt;{advanced}</p></td>
+<td>
+<p>「第17章」のような、章番号を含むテキストに置換される。</p>
+</td></tr><tr><td class="rdoc-term"><p>@&lt;title&gt;{advanced}</p></td>
+<td>
+<p>その章の章題に置換される。</p>
+</td></tr><tr><td class="rdoc-term"><p>@&lt;chapref&gt;{advanced}</p></td>
+<td>
+<p>『第17章「さらに進んだ話題」』のように、章番号とタイトルを含むテキストに置換される。</p>
+</td></tr><tr><td class="rdoc-term"><p>@&lt;bou&gt;{ふさわしい}</p></td>
+<td>
+<p>傍点。</p>
+</td></tr><tr><td class="rdoc-term"><p>@&lt;ruby&gt;{直截, ちょくせつ}</p></td>
+<td>
+<p>ルビ。</p>
+</td></tr><tr><td class="rdoc-term"><p>@&lt;ami&gt;{重点ポイント}</p></td>
+<td>
+<p>文字に対するアミかけ。</p>
+</td></tr><tr><td class="rdoc-term"><p>@&lt;b&gt;{どうしても}</p></td>
+<td>
+<p>太字 (ボールド)。</p>
+</td></tr><tr><td class="rdoc-term"><p>@&lt;i&gt;{どうしても}</p></td>
+<td>
+<p>イタリック。</p>
+</td></tr><tr><td class="rdoc-term"><p>@&lt;strong&gt;{どうしても}</p></td>
+<td>
+<p>強調。</p>
+</td></tr><tr><td class="rdoc-term"><p>@&lt;em&gt;{どうしても}</p></td>
+<td>
+<p>強調。</p>
+</td></tr><tr><td class="rdoc-term"><p>@&lt;tt&gt;{foo($bar)}</p></td>
+<td>
+<p>テキストをテレタイプ文字(等幅フォント)で出力する。</p>
+</td></tr><tr><td class="rdoc-term"><p>@&lt;tti&gt;{FooClass}</p></td>
+<td>
+<p>テキストをテレタイプ文字(等幅フォント)のイタリックで出力する。</p>
+</td></tr><tr><td class="rdoc-term"><p>@&lt;ttb&gt;{BarClass}</p></td>
+<td>
+<p>テキストをテレタイプ文字(等幅フォント)の太字で出力する。</p>
+</td></tr><tr><td class="rdoc-term"><p>@&lt;u&gt;{下線}</p></td>
+<td>
+<p>下線。</p>
+</td></tr><tr><td class="rdoc-term"><p>@&lt;br&gt;{}</p></td>
+<td>
+<p>段落中改行。</p>
+</td></tr><tr><td class="rdoc-term"><p>@&lt;m&gt;{a + alpha}</p></td>
+<td>
+<p>TeXインライン式。</p>
+</td></tr><tr><td class="rdoc-term"><p>@&lt;icon&gt;{samplephoto}</p></td>
+<td>
+<p>インライン画像。</p>
+</td></tr><tr><td class="rdoc-term"><p>@&lt;uchar&gt;{2460}</p></td>
+<td>
+<p>Unicode文字の出力。引数は16進数で指定する。</p>
+</td></tr><tr><td class="rdoc-term"><p>@&lt;href&gt;{<a href="http://www.google.com/">www.google.com/</a>}</p></td>
+<td>
+<p>リンク。URLで指定できる</p>
+</td></tr><tr><td class="rdoc-term"><p>@&lt;raw&gt;{|ビルダ名|&lt;span&gt;★&lt;/span&gt;}</p></td>
+<td>
+<p>そのまま出力する。「}」は「バックスラッシュ+}」でエスケープする。ビルダ名は「html」「latex」「idgxml」「top」のいずれかで、「,」で区切って複数指定することも可能。該当のビルダを使用時のみ、出力される。内容に「バックスラッシュ+n」を入れると改行に変換される。</p>
+</td></tr></table>
+
+<h2>著者用タグ (プリプロセッサ命令)</h2>
+
+<p>これまでに説明したタグはすべて最終段階まで残り、見ために 影響を与えます。それに対して以下のタグは著者が使うための
+専用タグであり、最終段階ではすべて消されてしまいます。</p>
+<table class="rdoc-list"><tr><td class="rdoc-term"><p>#@#</p></td>
+<td>
+<p>コメント。この行には何を書いても無視される。</p>
+</td></tr><tr><td class="rdoc-term"><p>#@warn(…)</p></td>
+<td>
+<p>警告メッセージ。プリプロセス時にメッセージが出力される。</p>
+</td></tr><tr><td class="rdoc-term"><p>#@require, #@provide</p></td>
+<td>
+<p>キーワードの依存関係を宣言する。</p>
+</td></tr><tr><td class="rdoc-term"><p>#@mapfile(ファイル名) 〜 #@end</p></td>
+<td>
+<p>ファイルの内容をその場に展開する。</p>
+</td></tr><tr><td class="rdoc-term"><p>#@maprange(ファイル名, 範囲名) 〜 #@end</p></td>
+<td>
+<p>ファイル内の範囲をその場に展開する。</p>
+</td></tr><tr><td class="rdoc-term"><p>#@mapoutput(コマンド) 〜 #@end</p></td>
+<td>
+<p>コマンドを実行して、その出力結果を展開する。</p>
+</td></tr></table>
+
+<h2>HTMLのレイアウト機能</h2>
+
+<p>CHAPSファイルが置かれているディレクトリに layouts/layout.erb を置くとその html を ERB で評価します。</p>
+
+<p>例:</p>
+
+<pre>&lt;html&gt;
+  &lt;head&gt;
+    &lt;title&gt;&lt;%= title %&gt;&lt;/title&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;%= body %&gt;
+    &lt;hr/&gt;
+  &lt;/body&gt;
+&lt;/html&gt;</pre>
+
+<h2>部タイトル取得(目次生成機能)</h2>
+
+<p>PART ファイルに定義してください。 PART ファイルは CHAPS の部わけと対応しています。</p>
+
+<p>例:</p>
+
+<p>CHAPS:</p>
+
+<pre>intro.re
+
+start.re
+
+end.re</pre>
+
+<p>PART:</p>
+
+<pre>(序章なので空行)
+はじまりの部
+おわりの部</pre>
+
+<h2>見出し参照</h2>
+
+<p>見出し番号と見出しを生成します。 見出しの階層は“|”で区切って指定してください。</p>
+
+<p>例:</p>
+
+<pre>@&lt;hd&gt;{はじめに|まずわ}</pre>
+
+<p>他の章を参照したい場合は、先頭に章のidを指定してください。</p>
+
+<p>例:</p>
+
+<pre>@&lt;hd&gt;{preface|はじめに|まずわ}</pre>
+
+<p>参照先にラベルが設定されている場合は、ラベルで参照します。</p>
+
+<pre>=={hajimeni} はじめに
+:
+=== まずわ
+:
+@&lt;hd&gt;{hajimeni|まずわ}</pre>
+
+<h2>リンク</h2>
+
+<p>Web ハイパーリンクを記述するには、リンクに @&lt;href&gt;、アンカーに //label を使います。リンクの書式は
+@&lt;href&gt;{URL, 文字表現} で、「, 文字表現」を 省略すると URL がそのまま使われます。URL 中に ,
+を使いたいときには、, と表記してください。</p>
+
+<p>例:</p>
+
+<pre>@&lt;href&gt;{http://github.com/, GitHub}
+@&lt;href&gt;{http://www.google.com/}
+@&lt;href&gt;{#point1, ドキュメント内ポイント}
+@&lt;href&gt;{chap1.html#point1, ドキュメント内ポイント}
+//label[point1]</pre>
+
+<h2>国際化(i18n)</h2>
+
+<p>ReVIEWが出力する文字列(「第◯章」「図」「表」など）を、指定した言語に 合わせて出力することができます。デフォルトは日本語です。</p>
+
+<p>CHAPS などと同じディレクトリに locale.yaml というファイルを用意して、 以下のように記述します（日本語の場合）。</p>
+
+<p>例:</p>
+
+<pre>locale: ja</pre>
+
+<p>既存の表記を書き換えたい場合は、該当する項目を上書きします。 既存の設定ファイルは lib/review/i18n.yaml にあります。</p>
+
+<p>例:</p>
+
+<pre>locale: ja
+image: イメージ
+table: テーブル</pre>
+
+  </div>
+
+  <div id="validator-badges">
+    <p><small><a href="http://validator.w3.org/check/referer">[Validate]</a></small></p>
+    <p><small>Generated with the <a href="http://deveiate.org/projects/Darkfish-Rdoc/">Darkfish
+      Rdoc Generator</a> 2</small>.</p>
+  </div>
+</body>
+</html>
+

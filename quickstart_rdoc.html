@@ -1,0 +1,300 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
+
+  <title>File: quickstart.rdoc [RDoc Documentation]</title>
+
+  <link type="text/css" media="screen" href="./rdoc.css" rel="stylesheet" />
+
+  <script src="./js/jquery.js" type="text/javascript"
+    charset="utf-8"></script>
+  <script src="./js/thickbox-compressed.js" type="text/javascript"
+    charset="utf-8"></script>
+  <script src="./js/quicksearch.js" type="text/javascript"
+    charset="utf-8"></script>
+  <script src="./js/darkfish.js" type="text/javascript"
+    charset="utf-8"></script>
+</head>
+
+<body class="file">
+  <div id="metadata">
+    <div id="home-metadata">
+      <div id="home-section" class="section">
+        <h3 class="section-header">
+          <a href="./index.html">Home</a>
+          <a href="./index.html#classes">Classes</a>
+          <a href="./index.html#methods">Methods</a>
+        </h3>
+      </div>
+    </div>
+
+    <div id="project-metadata">
+      
+      
+      <div id="fileindex-section" class="section project-section">
+        <h3 class="section-header">Files</h3>
+        <ul>
+        
+          <li class="file"><a href="./format_rdoc.html">format.rdoc</a></li>
+        
+          <li class="file"><a href="./format_idg_rdoc.html">format_idg.rdoc</a></li>
+        
+          <li class="file"><a href="./quickstart_rdoc.html">quickstart.rdoc</a></li>
+        
+        </ul>
+      </div>
+      
+
+      <div id="classindex-section" class="section project-section">
+        <h3 class="section-header">Class Index
+          <span class="search-toggle"><img src="./images/find.png"
+            height="16" width="16" alt="[+]"
+            title="show/hide quicksearch" /></span></h3>
+        <form action="#" method="get" accept-charset="utf-8" class="initially-hidden">
+        <fieldset>
+          <legend>Quicksearch</legend>
+          <input type="text" name="quicksearch" value=""
+            class="quicksearch-field" />
+        </fieldset>
+        </form>
+
+        <ul class="link-list">
+        
+        </ul>
+        <div id="no-class-search-results" style="display: none;">No matching classes.</div>
+      </div>
+
+      
+    </div>
+  </div>
+
+  <div id="documentation">
+    
+<h1>ReVIEWクイックスタートガイド</h1>
+
+<p>ReVIEW は、EWB や RD あるいは Wiki
+に似た簡易フォーマットで記述したテキストファイルを、目的に応じて各種の形式に変換するツールセットです。</p>
+
+<p>平易な文法ながらも、コンピュータ関係のドキュメント作成のための多くの機能を備えており、テキスト、LaTeX、HTML、XML
+といった形式に変換できます。独自のカスタマイズも簡単です。</p>
+
+<p>ReVIEW は GNU Lesser General Public License Version 2.1
+に基づいて配布されており、自由に利用、改変、再配布できます。このライセンスは、ReVIEW
+を使ってあなたが作成しようとする文書とは無関係であり、あなたの文書はこのライセンスに強制されることはありません。ReVIEW のツールセットあるいは
+ReVIEW を組み込んだシステムを配布あるいは販売しようとしているときには、ライセンスファイル COPYING をよく確認してください。</p>
+
+<p>このドキュメントでは、ReVIEW のセットアップから変換の例までを簡単に説明します。</p>
+
+<h2>セットアップ</h2>
+
+<p>ReVIEW は Ruby 言語で記述されており、Linux/Unix 互換システムで動作します。Mac OS X および Windows
+Cygwin でも動作可能です。Ruby gem、Git、Subversion のいずれかを使ってダウンロード・展開します。</p>
+
+<p>なお、ReVIEW フォーマット自体は文字で表現されたタグが付いている以外は単なるテキストファイルなので、エディタ、OS
+についてはまったく制限はありません。</p>
+
+<h3>Ruby gemを使う場合</h3>
+
+<p>機能セットがまとまった区切りごとに、ReVIEW の開発チームが ReVIEW の gem を更新しています。</p>
+
+<p>次のように ReVIEW の gem をインストールします。</p>
+
+<pre>gem install review</pre>
+
+<p>Ruby gem の bin ディレクトリにパスを通すようにしておいてください。</p>
+
+<p>インストール後、最新の gem に追従するには次のようにします。</p>
+
+<pre>gem update review</pre>
+
+<h3>Gitを使う場合</h3>
+
+<p>ReVIEW は GitHub で開発されており、バージョン管理ツールの Git を使って最新の ReVIEW コードを入手できます。Git
+は分岐が容易なので、独自のカスタマイズを施すのにも向いています。</p>
+
+<p>初めて取得するときには、次のようにします (コピーを作っています)。</p>
+
+<pre>git clone git://github.com/kmuto/review.git</pre>
+
+<p>review というディレクトリに展開されるので、review/bin にパスを通すようにしておいてください。</p>
+
+<p>最新の開発に追従するには次のようにします。</p>
+
+<pre>git pull</pre>
+
+<h3>Subversionを使う場合</h3>
+
+<p>Git の最新コピーは、別のバージョン管理ツールの Subversion 向けにも提供しています (古い環境では Subversion
+のクライアントしか入っていないことがあります)。</p>
+
+<p>初めて取得するときには、次のようにします (コピーを作っています)。</p>
+
+<pre>svn co https://kmuto.jp/svn/review/trunk review</pre>
+
+<p>review というディレクトリに展開されるので、review/bin にパスを通すようにしておいてください。</p>
+
+<p>最新の開発に追従するには次のようにします。</p>
+
+<pre>svn up</pre>
+
+<h1>ReVIEW テキストの作成と変換</h1>
+
+<p>セットアップを終えたら、ReVIEW フォーマットのテキストを作り、変換できるようになります。次に ReVIEW
+フォーマットテキストの簡単な例を示します。これを sample.re といった名前で保存します (拡張子も自由ですが、.re 拡張子を推奨します)。</p>
+
+<pre>= はじめてのReVIEW
+
+//lead{
+「Hello, ReVIEW.」
+//}
+
+== ReVIEWとは
+
+@&lt;b&gt;{ReVIEW}は、EWBやRDあるいはWikiに似た簡易フォーマットで記述したテキストファイルを、目的に応じて各種の形式に変換するツールセットです。
+
+平易な文法ながらも、コンピュータ関係のドキュメント作成のための多くの機能を備えており、次のような形式に変換できます。
+
+ * テキスト（指示タグ付き）
+ * LaTeX
+ * HTML
+ * XML
+
+現在入手手段としては次の3つがあります。
+
+ 1. Ruby gem
+ 2. Git
+ 3. Subversion
+
+ホームページは@&lt;tt&gt;{https://github.com/kmuto/review/wiki/}です。</pre>
+
+<p>テキストファイルの文字エンコーディングには、UTF-8 を使うことをお勧めします。ReVIEW は日本語文字エンコーディングとして
+UTF-8、EUC-JP、Shift-JIS、JIS を扱うことができ、入力ファイルについては自動判別、出力ファイルについても選択可能 (デフォルトは
+UTF-8) ですが、入力・出力のいずれにおいても、使用可能な文字についての制限が少ない UTF-8 が最適です。</p>
+
+<p>次に、章構成ファイルの CHAPS ファイルを同じディレクトリに用意します。このファイルには、ReVIEW フォーマットファイルの名前を格納します。</p>
+
+<pre>sample.re</pre>
+
+<p>CHAPS ファイルの1行目に書いたものが第1章、2行目に書いたものが第2章、……と構成されます (CHAPS に似たものとして、前付けを列挙する
+PREDEF ファイル、後付けを列挙する POSTDEF ファイルがあります)。</p>
+
+<p>sample.re から目的の形式に変換するには、review-compile コマンドを使います。</p>
+
+<pre>review-compile --target text sample.re &gt; sample.txt   ←テキストにする
+review-compile --target html sample.re &gt; sample.html  ←HTMLにする
+review-compile --target latex sample.re &gt; sample.tex  ←LaTeXにする
+review-compile --target idgxml sample.re &gt; sample.xml ←XMLにする</pre>
+
+<p>上記では各ファイル個別に変換することを想定して、標準出力をリダイレクトする書式を掲載していますが、-a
+オプションを付ければ、CHAPS、PREDEF、POSTDEF に従ってすべてのファイルを変換できます。</p>
+
+<pre>review-compile --target html -a ←すべてのファイルをHTMLにする</pre>
+
+<p>sample.re を HTML に変換すると、次のようになります。</p>
+
+<pre>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;!DOCTYPE html PUBLIC &quot;-//W3C//DTD XHTML 1.1//EN&quot; &quot;http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd&quot;&gt;
+&lt;html xmlns=&quot;http://www.w3.org/1999/xhtml&quot; xmlns:ops=&quot;http://www.idpf.org/2007/ops&quot; xml:lang=&quot;ja&quot;&gt;
+&lt;head&gt;
+  &lt;meta http-equiv=&quot;Content-Type&quot; content=&quot;text/html;charset=UTF-8&quot; /&gt;
+  &lt;meta http-equiv=&quot;Content-Style-Type&quot; content=&quot;text/css&quot; /&gt;
+  &lt;meta name=&quot;generator&quot; content=&quot;ReVIEW&quot; /&gt;
+  &lt;title&gt;はじめてのReVIEW&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;h1&gt;&lt;a id=&quot;h1&quot; /&gt;第1章　はじめてのReVIEW&lt;/h1&gt;
+&lt;div class=&quot;lead&quot;&gt;
+&lt;p&gt;「Hello, ReVIEW.」&lt;/p&gt;
+&lt;/div&gt;
+
+&lt;h2&gt;&lt;a id=&quot;h1-1&quot; /&gt;1.1　ReVIEWとは&lt;/h2&gt;
+&lt;p&gt;&lt;b&gt;ReVIEW&lt;/b&gt;は、EWBやRDあるいはWikiに似た簡易フォーマットで記述したテキストファイルを、目的に応じて各種の形式に変換するツールセットです。&lt;/p&gt;
+&lt;p&gt;平易な文法ながらも、コンピュータ関係のドキュメント作成のための多くの機能を備えており、次のような形式に変換できます。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;テキスト（指示タグ付き）&lt;/li&gt;
+&lt;li&gt;LaTeX&lt;/li&gt;
+&lt;li&gt;HTML&lt;/li&gt;
+&lt;li&gt;XML&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;現在入手手段としては次の3つがあります。&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Ruby gem&lt;/li&gt;
+&lt;li&gt;Git&lt;/li&gt;
+&lt;li&gt;Subversion&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;ホームページは&lt;tt&gt;https://github.com/kmuto/review/wiki/&lt;/tt&gt;です。&lt;/p&gt;
+&lt;/body&gt;
+&lt;/html&gt;</pre>
+
+<p>ReVIEW フォーマットについての詳細は、 <a
+href="https://github.com/kmuto/review/blob/master/doc/format.rdoc">format.rdoc</a>
+を参照してください。</p>
+
+<p>review-compile を含め、ほとんどのコマンドは –help
+オプションを付けるとオプションについてのヘルプが表示されます。review-compile には多数のオプションがあるので確認してください。</p>
+
+<p>なお、–target で毎回指定するのは面倒なので、review-compile
+に対するシンボリックリンクを作成しておくとよいでしょう。「review2…」のコマンド名で呼び出せるようになります。</p>
+
+<pre>cd ReVIEWのインストールされたパス/bin
+ln -s review-compile review2text
+ln -s review-compile review2html
+ln -s review-compile review2latex
+ln -s review-compile review2idgxml</pre>
+
+<h2>プリプロセッサ、ボリューム表示</h2>
+
+<p>#@mapfile、#@maprange、#@mapoutput
+のタグを使って、指定のファイルの内容あるいはコマンドの実行結果を挿入できます。挿入・更新を行うには、プリプロセッサとなる review-preproc
+コマンドを使います。</p>
+
+<pre>review-preproc ファイル &gt; 結果ファイル ←標準出力をリダイレクト
+ または
+review-preproc --replace ファイル ←ファイルを更新したもので上書き</pre>
+
+<p>各章の分量などを表示するには、review-vol コマンドを使います。</p>
+
+<pre>review-vol</pre>
+
+<p>より細かな見出し一覧などを出したいときには、review-index コマンドを使うのもよいでしょう。</p>
+
+<pre>review-index --level 掘り下げる見出しレベル数 -a</pre>
+
+<h2>PDF 化と EPUB 化</h2>
+
+<p>review-pdfmaker コマンドで PDF ブックの作成、review-epubmaker コマンドで EPUB ファイルの作成ができます。</p>
+
+<p>PDF を作成するには、pTeXLive2009 以上の環境が必要です。EPUB を作成するには、zip コマンドが必要です (MathML
+も使いたいときには、 <a href="http://www.hinet.mydns.jp/?mathml.rb">MathML
+ライブラリ</a>も必要です)。</p>
+
+<p>いずれのコマンドも、必要な設定情報を記した YAML ファイルを引数に指定して実行します。YAML ファイルのサンプルは、 <a
+href="https://github.com/kmuto/review/blob/master/doc/sample.yaml">sample.yaml</a>
+としてこのドキュメントと同じディレクトリに収録しています。</p>
+
+<pre>review-pdfmaker YAMLファイル  ←PDFの作成
+review-epubmaker YAMLファイル ←EPUBの作成</pre>
+
+<h2>クレジット</h2>
+
+<p>ReVIEW
+は、青木峰郎によって最初に作成されました。武藤健志がこの開発・保守を引き継ぎ、2010年12月時点では、武藤健志、高橋征義、角征典が開発・保守を継続しています。</p>
+
+<p>バグ・パッチの報告、開発者用メーリングリストなどについての情報は、 <a
+href="https://github.com/kmuto/review/wiki">github.com/kmuto/review/wiki</a>
+を参照してください。</p>
+
+  </div>
+
+  <div id="validator-badges">
+    <p><small><a href="http://validator.w3.org/check/referer">[Validate]</a></small></p>
+    <p><small>Generated with the <a href="http://deveiate.org/projects/Darkfish-Rdoc/">Darkfish
+      Rdoc Generator</a> 2</small>.</p>
+  </div>
+</body>
+</html>
+

@@ -1,0 +1,333 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
+
+  <title>File: format_idg.rdoc [RDoc Documentation]</title>
+
+  <link type="text/css" media="screen" href="./rdoc.css" rel="stylesheet" />
+
+  <script src="./js/jquery.js" type="text/javascript"
+    charset="utf-8"></script>
+  <script src="./js/thickbox-compressed.js" type="text/javascript"
+    charset="utf-8"></script>
+  <script src="./js/quicksearch.js" type="text/javascript"
+    charset="utf-8"></script>
+  <script src="./js/darkfish.js" type="text/javascript"
+    charset="utf-8"></script>
+</head>
+
+<body class="file">
+  <div id="metadata">
+    <div id="home-metadata">
+      <div id="home-section" class="section">
+        <h3 class="section-header">
+          <a href="./index.html">Home</a>
+          <a href="./index.html#classes">Classes</a>
+          <a href="./index.html#methods">Methods</a>
+        </h3>
+      </div>
+    </div>
+
+    <div id="project-metadata">
+      
+      
+      <div id="fileindex-section" class="section project-section">
+        <h3 class="section-header">Files</h3>
+        <ul>
+        
+          <li class="file"><a href="./format_rdoc.html">format.rdoc</a></li>
+        
+          <li class="file"><a href="./format_idg_rdoc.html">format_idg.rdoc</a></li>
+        
+          <li class="file"><a href="./quickstart_rdoc.html">quickstart.rdoc</a></li>
+        
+        </ul>
+      </div>
+      
+
+      <div id="classindex-section" class="section project-section">
+        <h3 class="section-header">Class Index
+          <span class="search-toggle"><img src="./images/find.png"
+            height="16" width="16" alt="[+]"
+            title="show/hide quicksearch" /></span></h3>
+        <form action="#" method="get" accept-charset="utf-8" class="initially-hidden">
+        <fieldset>
+          <legend>Quicksearch</legend>
+          <input type="text" name="quicksearch" value=""
+            class="quicksearch-field" />
+        </fieldset>
+        </form>
+
+        <ul class="link-list">
+        
+        </ul>
+        <div id="no-class-search-results" style="display: none;">No matching classes.</div>
+      </div>
+
+      
+    </div>
+  </div>
+
+  <div id="documentation">
+    
+<h1>ReVIEW フォーマット InDesign XML 形式拡張</h1>
+
+<p>ReVIEW フォーマットから、Adobe 社の DTP ソフトウェア「InDesign」 で読み込んで利用しやすい XML 形式に変換できます
+(通常の XML とほぼ同じ ですが、文書構造ではなく見た目を指向した形態になっています)。 現時点では idgxmlbuilder.rb と
+topbuilder.rb のみが拡張に対応しています。 実際には出力された XML を InDesign のスタイルに割り当てるフィルタをさらに
+作成・適用する必要があります。</p>
+
+<h2>章・節・項・段</h2>
+
+<p><a href="http://column">従来の</a>のほかに、オプションを追加しています。</p>
+<ul><li><dl class="rdoc-list"><dt>nonum</dt>
+<dd>
+<p>: これを指定している章・節・項・段には連番を振りません。</p>
+</dd></dl>
+</li><li>
+<p>[circle]: 「・」を先頭に付けた小さな見出し(連番なし)を作成します。</p>
+</li><li>
+<p>[world]: Real Worldコラム。</p>
+</li><li>
+<p>[hood]: Under the Hoodコラム。</p>
+</li><li>
+<p>[edition]: Editionコラム。</p>
+</li><li>
+<p>[insideout]: インサイドアウトコラム。</p>
+</li></ul>
+
+<h2>書式ブロック</h2>
+
+<p>//insn[タイトル]{ 〜 //} または //box[タイトル]{ 〜 //} で書式を指定し ます。</p>
+
+<h2>ノート</h2>
+
+<p>//note{ 〜 //} または //note[タイトル]{ 〜 //} で注意文章を指定します。</p>
+
+<h2>メモ</h2>
+
+<p>//memo{ 〜 //} または //memo[タイトル]{ 〜 //} でメモ文章を指定します。</p>
+
+<h2>ヒント</h2>
+
+<p>//tip{ 〜 //} または //tip[タイトル]{ 〜 //} でヒント(Tip)文章を指定します。</p>
+
+<h2>参照ブロック</h2>
+
+<p>//info{ 〜 //} または //info[タイトル]{ 〜 //} で参照文章を指定します。</p>
+
+<h2>プランニング</h2>
+
+<p>//planning{ 〜 //} または //planning[タイトル]{ 〜 //} でプランニング文章を 指定します。</p>
+
+<h2>ベストプラクティス</h2>
+
+<p>//best{ 〜 //} または //best[タイトル]{ 〜 //} でベストプラクティス文章を 指定します。</p>
+
+<h2>ここが重要 (キーワード)</h2>
+
+<p>//important[タイトル]{ 〜 //} で重要項目を指定します。</p>
+
+<h2>セキュリティ</h2>
+
+<p>//security{ 〜 //} または //security[タイトル]{ 〜 //} でセキュリティ文章を 指定します。</p>
+
+<h2>警告</h2>
+
+<p>//caution{ 〜 //} または //caution[タイトル]{ 〜 //} で警告文章を指定します。</p>
+
+<h2>エキスパートに訊く</h2>
+
+<p>//expert{ 〜 //} で「エキスパートに訊く」を指定します (rawで&lt;expert&gt;〜
+&lt;/expert&gt;を使うほうがよいかもしれません)。 QとAは@&lt;b&gt;{Q}：〜 と @&lt;b&gt;{A}：〜
+で示します。</p>
+
+<h2>注意</h2>
+
+<p>//notice{ 〜 //} または //notice[タイトル]{ 〜 //} で注意を指定します。</p>
+
+<h2>ワンポイント</h2>
+
+<p>//point{ 〜 //} または //point[タイトル]{ 〜 //} でワンポイントを指定します。</p>
+
+<h2>トラブルシューティング</h2>
+
+<p>//shoot{ 〜 //} または //shoot[タイトル]{ 〜 //} でトラブルシューティングを 指定します。</p>
+
+<h2>用語解説</h2>
+
+<p>//term{ 〜 //} で用語解説を指定します(ただし、ブロック指定ができないので
+実質的にはrawで&lt;term&gt;〜&lt;/term&gt;を通常使うことになるでしょう)。</p>
+
+<h2>リンク</h2>
+
+<p>//link{ 〜 //} または //link[タイトル]{ 〜 //} で他の章やファイルなどへの 参照内容を指定します。</p>
+
+<h2>練習問題</h2>
+
+<p>//practice{ 〜 //} で練習問題を指定します。</p>
+
+<h2>参考</h2>
+
+<p>//reference{ 〜 //} で参考情報を指定します。</p>
+
+<h2>相互参照</h2>
+
+<p>//label[〜]でラベルを定義し、@&lt;labelref&gt;{〜}で参照します。 XMLとしては&lt;label id=‘〜’
+/&gt;と&lt;labelref idref=‘〜’ /&gt;というタグに 置き換えられます。
+実際にどのような相互参照関係にするかは、処理系に依存します。 想定の用途では、章や節の番号およびタイトルを記憶し、labelrefの出現箇所
+に“「節(あるいは章)番号　タイトル」”という文字列を配置します。</p>
+
+<p>@&lt;chapref&gt;の展開形式を、–chapref=“前装飾文字列,中間装飾文字列,後装飾文字列”
+でコンパイル実行時に指定できます。デフォルトは“,「,」”です。たとえば “第2章「コンパイラ」” のように普通は展開されます。
+“「,　,」”と指定すると、“「第2章　コンパイラ」” に展開されます。</p>
+
+<h2>丸数字</h2>
+
+<p>@&lt;maru&gt;{数値} で丸数字を出力します。</p>
+
+<h2>キートップ</h2>
+
+<p>@&lt;keytop&gt;{キー文字} でキーボードマークを出力します。</p>
+
+<h2>吹き出し</h2>
+
+<p>@&lt;balloon&gt;{〜} でコード内などでの吹き出しを作成します。吹き出しは右に寄せ られ、記入した箇所から吹き出しまで線が引かれます。
+@&lt;&gt;<a href="http://数値">オペレータは入れ子ができないため、丸数字を使いたいときには@maru</a>
+という特別な書式を代わりに使います。</p>
+
+<h2>ロー指定</h2>
+
+<p>現時点で ReVIEW はブロックの入れ子処理ができないため、ロー指定で XML エレメントを指定しなければならないこともあります。</p>
+
+<p>インラインの@&lt;raw&gt;{ 〜 }<a href="http://〜">の他に、単一行の//raw</a>、ブロック版の
+//rawblock{ 〜 //} でも、フォーマット処理をせずにそのままの文字列が出力できます。</p>
+
+<h2>キャプションなし表</h2>
+
+<p>//table{ 〜 //} のように id もキャプションも付けないブロックを利用できます。 この場合、その表の連番付けを飛ばします。</p>
+
+<h2>表セル幅の指定</h2>
+
+<p>//tsize[1列目の幅,2列目の幅,…] で、続く //table の表の列幅を指定します
+(単位mm)。これを利用するときには、review2idgxml を実行する際、オプション –table=表幅 を付ける必要があります (表幅の単位は
+mm)。列幅指定の個数が 実際の列数に満たない場合、残りの列は均等分割したものとなります。列幅の 合計が表幅を超えるとエラーになります。</p>
+
+<h2>DTP 命令指定</h2>
+
+<p>@&lt;dtp&gt;{ 〜 } で InDesign 向けに「&lt;? dtp 〜 ?&gt;」型の XML インストラクション
+を埋め込みます。処理系に渡す任意の文字列を指定できますが、次のような文字列 を特殊文字指定できます。</p>
+<ul><li>
+<p>maru  番号リストの各段落先頭で使い、このリスト段落の番号は丸数字であることを示す</p>
+</li><li>
+<p>return  改行記号文字</p>
+</li><li>
+<p>autopagenumber        現ページ番号</p>
+</li><li>
+<p>nextpageunmber        次ページ番号</p>
+</li><li>
+<p>previouspagenumber    前ページ番号</p>
+</li><li>
+<p>sectionmarker セクションマーカー</p>
+</li><li>
+<p>bulletcharacter       ビュレット (ナカグロ)</p>
+</li><li>
+<p>copyrightsymbol       著作権記号</p>
+</li><li>
+<p>degreesymbol  度記号</p>
+</li><li>
+<p>ellipsischaracter     省略記号</p>
+</li><li>
+<p>forcedlinebreak       強制改行</p>
+</li><li>
+<p>discretionarylinebreak        任意の改行</p>
+</li><li>
+<p>paragraphsymbol       段落記号</p>
+</li><li>
+<p>registeredtrademark   登録商標記号</p>
+</li><li>
+<p>sectionsymbol セクション記号</p>
+</li><li>
+<p>trademarksymbol       商標記号</p>
+</li><li>
+<p>rightindenttab        右インデントタブ</p>
+</li><li>
+<p>indentheretab 「ここまでインデント」タブ</p>
+</li><li>
+<p>zerowidthnonjoiner    結合なし</p>
+</li><li>
+<p>emdash        EMダッシュ</p>
+</li><li>
+<p>endash        ENダッシュ</p>
+</li><li>
+<p>discretionaryhyphen   任意ハイフン</p>
+</li><li>
+<p>nonbreakinghyphen     分散禁止ハイフン</p>
+</li><li>
+<p>endnestedstyle        先頭文字スタイルの終了文字</p>
+</li><li>
+<p>doubleleftquote       左二重引用符</p>
+</li><li>
+<p>doublerightquote      右二重引用符</p>
+</li><li>
+<p>singleleftquote       左用符</p>
+</li><li>
+<p>singlerightquote      右引用符</p>
+</li><li>
+<p>singlestraightquote   半角一重左用符</p>
+</li><li>
+<p>doublestraightquote   半角二重引用符</p>
+</li><li>
+<p>emspace       EMスペース</p>
+</li><li>
+<p>enspace       ENスペース</p>
+</li><li>
+<p>flushspace    フラッシュスペース</p>
+</li><li>
+<p>hairspace     極細スペース</p>
+</li><li>
+<p>nonbreakingspace      分散禁止スペース</p>
+</li><li>
+<p>fixedwidthnonbreakingspace    分散禁止スペース（固定幅）</p>
+</li><li>
+<p>textvariable  全角スペース</p>
+</li><li>
+<p>thinspace     細いスペース</p>
+</li><li>
+<p>figurespace   数字の間隔</p>
+</li><li>
+<p>punctuationspace      句読点等の間隔</p>
+</li><li>
+<p>sixthspace    1/6スペース</p>
+</li><li>
+<p>quarterspace  1/4スペース</p>
+</li><li>
+<p>thirdspace    1/3スペース</p>
+</li><li>
+<p>columnbreak   改段</p>
+</li><li>
+<p>framebreak    改フレーム</p>
+</li><li>
+<p>pagebreak     改ページ</p>
+</li><li>
+<p>oddpagebreak  奇数改ページ</p>
+</li><li>
+<p>evenpagebreak 偶数改ページ</p>
+</li><li>
+<p>footnotesymbol        脚注記号</p>
+</li></ul>
+
+  </div>
+
+  <div id="validator-badges">
+    <p><small><a href="http://validator.w3.org/check/referer">[Validate]</a></small></p>
+    <p><small>Generated with the <a href="http://deveiate.org/projects/Darkfish-Rdoc/">Darkfish
+      Rdoc Generator</a> 2</small>.</p>
+  </div>
+</body>
+</html>
+
